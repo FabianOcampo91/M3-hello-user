@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react'
 import './App.css';
 
 function App() {
+  const [greet, setGreet] = useState('');
+  const [changeuser, setChangeUser] = useState ('')
+
+  useEffect(() => {
+    if(changeuser){
+    alert('Thank you for visiting me 🤓');
+  }
+  }, [changeuser])
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1>Hello Use World</h1>
+     <input type="text" placeholder='Enter your name' value={greet} onChange={(e) => setGreet(e.target.value)}/>
+     <button type='botton' onClick={() => setChangeUser(`¡Welcome ${greet}! 🤗`)}>¡Greet me!</button>
+     <h3>{changeuser ? changeuser : 'Please Enter Your Name 🙏'}</h3>
     </div>
   );
 }
